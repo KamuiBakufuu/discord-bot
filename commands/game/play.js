@@ -1,13 +1,10 @@
-const {SlashCommandBuilder} = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('play')
         .setDescription('Play a game!'),
     async execute(interaction) {
-        await execute(interaction);
-        {
-            await interaction.reply('Not yet implemented!');
-        }
+        await interaction.reply('Not yet implemented!');
     },
 };

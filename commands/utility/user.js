@@ -1,4 +1,4 @@
-const {SlashCommandBuilder} = require(`discord.js`);
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { data } = require("./ping");
 
 module.exports = {
@@ -6,10 +6,6 @@ module.exports = {
     .setName(`user`)
     .setDescription(`Replies with user info!`),
     async execute(interaction) {
-        await execute(interaction);
-        {
-            await interaction.reply(`This command was run by ${interaction.user.username} 
-            who joined on $(interaction.user.joinedAt)`);
-        }
-    },
+        await interaction.reply(`This command was run by ${interaction.user.username} who joined on ${interaction.user.joinedAt}`);
+    }
 };
