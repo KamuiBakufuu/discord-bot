@@ -26,9 +26,26 @@ module.exports = {
         const actionRow = new ActionRowBuilder()
             .addComponents(button, secondButton);
 
-        await interaction.reply({
+        const reply = await interaction.reply({
             content: 'Click a button...',
-            components: [actionRow],
+            components: [actionRow]
+        });
+
+        const filter = (i) => i.user.id === interaction.user.id;
+
+        const collector = reply.createMessageComponentCollector({ 
+            ComponentType: ComponentType.BUTTON,
+            filter, 
+            time: 15000 });
+
+        collector.on('collect', (interaction) => {
+            if (interaction.customId === 'button') {
+                interaction.reply('You clicked the first button!');
+            } 
+            
+            else if (interaction.customId === 'secondButton') {
+                interaction.reply('You clicked the second button! How dare you?! >:(');
+            }
         });
     },
 };
