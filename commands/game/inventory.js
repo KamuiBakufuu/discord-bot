@@ -1,8 +1,5 @@
+/*
 const { 
-    ButtonBuilder,
-    ButtonStyle,
-    ActionRowBuilder,
-    ComponentType,
     SlashCommandBuilder
 } = require('discord.js');
 
@@ -18,3 +15,4 @@ module.exports = {
         await interaction.reply(`${interaction.user.username}'s inventory: \n${inventory}`);
     }
 }
+*/

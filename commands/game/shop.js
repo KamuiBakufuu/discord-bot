@@ -2,8 +2,6 @@ const {
     SlashCommandBuilder,
     ActionRowBuilder,
     StringSelectMenuBuilder,
-    StringSelectMenuOptionBuilder,
-    ComponentType,
 } = require('discord.js');
 
 const fs = require('fs');
@@ -14,7 +12,7 @@ module.exports = {
         .setName('shop')
         .setDescription('Visit the shop'),
     async execute(interaction) {
-        const shopItems = fs.readFileSync('shop.json', 'utf8');
+        const shopItems = fs.readFileSync('shopItems.json', 'utf8');
         const shopItemsObj = JSON.parse(shopItems);
         
         const items = [];
@@ -45,12 +43,9 @@ module.exports = {
             filter,
         });
 
-        collector.on('collect', (i) => {
+        collector.on('collect', async i => {
             const item = shopItemsObj[i.values[0]];
-            i.deferUpdate().then(() => {
-                interaction.followUp(`You bought ${item.name} for ${item.price} coins!`);
-                return;
-            });
+            await i.reply(`You bought a ${item.name} for ${item.price} coins!`);
         });
     },
 };
