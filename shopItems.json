@@ -1,0 +1,12 @@
+{
+  "item1": {
+    "name": "Mini Box",
+    "description": "Contains 2 random character badges.",
+    "price": 100
+  },
+  "item2": {
+    "name": "Giant Box",
+    "description": "Contains 5 random character badges.",
+    "price": 150
+  }
+}

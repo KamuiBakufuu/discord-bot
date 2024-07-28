@@ -70,7 +70,6 @@ function saveGameState(content) {
             return;
         }
         console.log('Game state saved successfully!');
-
     });
 }
 

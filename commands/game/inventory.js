@@ -7,7 +7,7 @@ const {
 } = require('discord.js');
 
 const fs = require('fs');
-const { data } = require('./play');
+const inventory = fs.readFileSync('inventory.json', 'utf8');
 
 module.exports = {
     data: new SlashCommandBuilder()
